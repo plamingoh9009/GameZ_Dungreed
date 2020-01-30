@@ -1,0 +1,4 @@
+﻿  stdafx.cpp
+e:\cpp_works\api_project\캐릭터정보창\20200129_homework\gamenode.h(4): error C2065: 'IMAGEMANAGER': 선언되지 않은 식별자입니다.
+e:\cpp_works\api_project\캐릭터정보창\20200129_homework\gamenode.h(4): error C2065: 'WINSIZEX': 선언되지 않은 식별자입니다.
+e:\cpp_works\api_project\캐릭터정보창\20200129_homework\gamenode.h(4): error C2065: 'WINSIZEY': 선언되지 않은 식별자입니다.
