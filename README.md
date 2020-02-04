@@ -1,4 +1,4 @@
-# GameZ_Dungreed
+# Game'Z_Dungreed
 # Ver 1.0.0.0
 
 - 이대연:
