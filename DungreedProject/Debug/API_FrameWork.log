@@ -1,0 +1,39 @@
+﻿  stdafx.cpp
+  animation.cpp
+  effect.cpp
+  gameNode.cpp
+  image.cpp
+  timer.cpp
+  utils.cpp
+  mainGame.cpp
+  effectManager.cpp
+  imageManager.cpp
+  keyManager.cpp
+  sceneManager.cpp
+  soundManager.cpp
+  timeManager.cpp
+  Monster.cpp
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(28): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(29): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(30): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(31): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(35): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(36): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(37): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(38): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(43): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(44): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(45): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(46): warning C4244: '-=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(51): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(52): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(53): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+c:\users\고동원\downloads\gamez_dungreed--\gamez_dungreed--\dungreedproject\object\unit\monster.cpp(54): warning C4244: '+=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MonsterControl.cpp
+  Player.cpp
+  Skeleton_warrior.cpp
+  stage.cpp
+  testScene.cpp
+  winMain.cpp
+  코드를 생성하고 있습니다...
+  API_FrameWork.vcxproj -> C:\Users\고동원\Downloads\GameZ_Dungreed--\GameZ_Dungreed--\DungreedProject\Debug\API_FrameWork.exe

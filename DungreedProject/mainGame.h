@@ -1,8 +1,10 @@
 #pragma once
 #include "base/gameNode.h"
-
+#include "Scene/testScene.h"
 class mainGame : public gameNode
 {
+private:
+	
 public:
 	mainGame();
 	~mainGame();
