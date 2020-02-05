@@ -1,10 +1,10 @@
 #pragma once
 #include "base/gameNode.h"
-#include "Object/Unit/Player.h"
+#include "Scene/testScene.h"
 class mainGame : public gameNode
 {
 private:
-	Player * _p;
+	
 public:
 	mainGame();
 	~mainGame();

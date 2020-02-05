@@ -58,6 +58,12 @@
     <Filter Include="Object\Unit">
       <UniqueIdentifier>{3210982e-1d9b-4e2e-9a9e-d7cdf14b926b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\Unit\몬스터">
+      <UniqueIdentifier>{b980c992-8e3c-4119-bb75-113c2490faaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Unit\플레이어">
+      <UniqueIdentifier>{b585f86b-0c42-42da-921b-1b722a6a7b67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -120,11 +126,23 @@
     <ClInclude Include="stdafx.h">
       <Filter>pch</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\testScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
     <ClInclude Include="Object\Unit\Player.h">
+      <Filter>Object\Unit\플레이어</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Unit\Monster.h">
+      <Filter>Object\Unit\몬스터</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Unit\MonsterControl.h">
+      <Filter>Object\Unit\몬스터</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\Unit\stage.h">
       <Filter>Object\Unit</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\stage.h">
-      <Filter>Scene</Filter>
+    <ClInclude Include="Object\Unit\Skeleton_warrior.h">
+      <Filter>Object\Unit\몬스터</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,11 +191,23 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>pch</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\testScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
     <ClCompile Include="Object\Unit\Player.cpp">
+      <Filter>Object\Unit\플레이어</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Unit\Monster.cpp">
+      <Filter>Object\Unit\몬스터</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Unit\MonsterControl.cpp">
+      <Filter>Object\Unit\몬스터</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Unit\stage.cpp">
       <Filter>Object\Unit</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\stage.cpp">
-      <Filter>Scene</Filter>
+    <ClCompile Include="Object\Unit\Skeleton_warrior.cpp">
+      <Filter>Object\Unit\몬스터</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

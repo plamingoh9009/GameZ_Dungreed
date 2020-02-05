@@ -165,9 +165,13 @@
     <ClInclude Include="manager\sceneManager.h" />
     <ClInclude Include="manager\soundManager.h" />
     <ClInclude Include="manager\timeManager.h" />
+    <ClInclude Include="Object\Unit\Monster.h" />
+    <ClInclude Include="Object\Unit\MonsterControl.h" />
     <ClInclude Include="Object\Unit\Player.h" />
+    <ClInclude Include="Object\Unit\Skeleton_warrior.h" />
+    <ClInclude Include="Object\Unit\stage.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Scene\stage.h" />
+    <ClInclude Include="Scene\testScene.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -185,8 +189,12 @@
     <ClCompile Include="manager\sceneManager.cpp" />
     <ClCompile Include="manager\soundManager.cpp" />
     <ClCompile Include="manager\timeManager.cpp" />
+    <ClCompile Include="Object\Unit\Monster.cpp" />
+    <ClCompile Include="Object\Unit\MonsterControl.cpp" />
     <ClCompile Include="Object\Unit\Player.cpp" />
-    <ClCompile Include="Scene\stage.cpp" />
+    <ClCompile Include="Object\Unit\Skeleton_warrior.cpp" />
+    <ClCompile Include="Object\Unit\stage.cpp" />
+    <ClCompile Include="Scene\testScene.cpp" />
     <ClCompile Include="winMain.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

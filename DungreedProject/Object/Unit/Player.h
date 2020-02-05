@@ -1,7 +1,7 @@
 #pragma once
 #include "base/gameNode.h"
 #include "base/singletonBase.h"
-#include "Scene/stage.h"
+#include "Object/Unit/stage.h"
 enum player_WAY
 {
 	Left=0,
