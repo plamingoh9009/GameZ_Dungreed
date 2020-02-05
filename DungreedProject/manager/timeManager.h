@@ -1,6 +1,6 @@
 #pragma once
-#include"singletonBase.h"
-#include"timer.h"
+#include "base/singletonBase.h"
+#include "base/timer.h"
 class timeManager :  public singletonBase<timeManager>
 {
 private:

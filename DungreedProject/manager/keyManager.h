@@ -1,6 +1,6 @@
 #pragma once
-#include"singletonBase.h"
-#include<bitset>
+#include "base/singletonBase.h"
+#include <bitset>
 using namespace std;
 #define KEYMAX 256
 class keyManager :  public singletonBase<keyManager>

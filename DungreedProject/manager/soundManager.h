@@ -1,6 +1,6 @@
 #pragma once
-#include"singletonBase.h"
-#include"inc/fmod.hpp"
+#include "base/singletonBase.h"
+#include "inc/fmod.hpp"
 #pragma comment(lib,"lib/fmodex_vc.lib")
 using namespace FMOD;
 

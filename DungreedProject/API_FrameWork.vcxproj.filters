@@ -9,36 +9,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="gameNode">
-      <UniqueIdentifier>{71e18ebb-4095-48a9-bf64-0101a4b28e62}</UniqueIdentifier>
-    </Filter>
     <Filter Include="mainGame">
       <UniqueIdentifier>{ea4c5740-10f5-4349-8ad6-d780ce577129}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="singletonBase">
-      <UniqueIdentifier>{1352499b-c472-4ac9-85cb-71b3f3226ffd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Manager">
       <UniqueIdentifier>{18fb1c79-f50b-4b9b-a264-e066d2bca54b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UTIL">
-      <UniqueIdentifier>{ee673918-6273-48b6-b9d8-c4d87fd95bc1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="image">
-      <UniqueIdentifier>{c6071c33-1efa-44cc-a846-47833fbef4fe}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="타이머">
-      <UniqueIdentifier>{63bdded0-ba64-47dd-adec-960c099f3b07}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="애니메이션">
-      <UniqueIdentifier>{815067c8-1852-4de4-88c6-942efbfbdbf6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="이펙트">
-      <UniqueIdentifier>{a85304e6-b75f-4c0c-8b3c-6a086fab35f1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{3b319a7b-f402-4300-9aa3-5e72a00a51d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\image">
+      <UniqueIdentifier>{c6071c33-1efa-44cc-a846-47833fbef4fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\gameNode">
+      <UniqueIdentifier>{71e18ebb-4095-48a9-bf64-0101a4b28e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\singletonBase">
+      <UniqueIdentifier>{1352499b-c472-4ac9-85cb-71b3f3226ffd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\UTIL">
+      <UniqueIdentifier>{ee673918-6273-48b6-b9d8-c4d87fd95bc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\애니메이션">
+      <UniqueIdentifier>{815067c8-1852-4de4-88c6-942efbfbdbf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\이펙트">
+      <UniqueIdentifier>{a85304e6-b75f-4c0c-8b3c-6a086fab35f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\타이머">
+      <UniqueIdentifier>{63bdded0-ba64-47dd-adec-960c099f3b07}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,53 +60,53 @@
     <ClInclude Include="commonMacroFunction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="gameNode.h">
-      <Filter>gameNode</Filter>
-    </ClInclude>
     <ClInclude Include="mainGame.h">
       <Filter>mainGame</Filter>
     </ClInclude>
-    <ClInclude Include="keyManager.h">
+    <ClInclude Include="manager\animationManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="singletonBase.h">
-      <Filter>singletonBase</Filter>
-    </ClInclude>
-    <ClInclude Include="randomFunction.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="utils.h">
-      <Filter>UTIL</Filter>
-    </ClInclude>
-    <ClInclude Include="image.h">
-      <Filter>image</Filter>
-    </ClInclude>
-    <ClInclude Include="imageManager.h">
+    <ClInclude Include="manager\effectManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="timer.h">
-      <Filter>타이머</Filter>
-    </ClInclude>
-    <ClInclude Include="timeManager.h">
+    <ClInclude Include="manager\imageManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="sceneManager.h">
+    <ClInclude Include="manager\keyManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="soundManager.h">
+    <ClInclude Include="manager\sceneManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="animation.h">
-      <Filter>애니메이션</Filter>
-    </ClInclude>
-    <ClInclude Include="animationManager.h">
+    <ClInclude Include="manager\soundManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
-    <ClInclude Include="effect.h">
-      <Filter>이펙트</Filter>
-    </ClInclude>
-    <ClInclude Include="effectManager.h">
+    <ClInclude Include="manager\timeManager.h">
       <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="manager\randomFunction.h">
+      <Filter>Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="base\gameNode.h">
+      <Filter>base\gameNode</Filter>
+    </ClInclude>
+    <ClInclude Include="base\image.h">
+      <Filter>base\image</Filter>
+    </ClInclude>
+    <ClInclude Include="base\singletonBase.h">
+      <Filter>base\singletonBase</Filter>
+    </ClInclude>
+    <ClInclude Include="base\utils.h">
+      <Filter>base\UTIL</Filter>
+    </ClInclude>
+    <ClInclude Include="base\animation.h">
+      <Filter>base\애니메이션</Filter>
+    </ClInclude>
+    <ClInclude Include="base\effect.h">
+      <Filter>base\이펙트</Filter>
+    </ClInclude>
+    <ClInclude Include="base\timer.h">
+      <Filter>base\타이머</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -113,47 +116,47 @@
     <ClCompile Include="winMain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="gameNode.cpp">
-      <Filter>gameNode</Filter>
-    </ClCompile>
     <ClCompile Include="mainGame.cpp">
       <Filter>mainGame</Filter>
     </ClCompile>
-    <ClCompile Include="keyManager.cpp">
+    <ClCompile Include="manager\animationManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="utils.cpp">
-      <Filter>UTIL</Filter>
-    </ClCompile>
-    <ClCompile Include="image.cpp">
-      <Filter>image</Filter>
-    </ClCompile>
-    <ClCompile Include="imageManager.cpp">
+    <ClCompile Include="manager\effectManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="timer.cpp">
-      <Filter>타이머</Filter>
-    </ClCompile>
-    <ClCompile Include="timeManager.cpp">
+    <ClCompile Include="manager\imageManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="sceneManager.cpp">
+    <ClCompile Include="manager\keyManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="soundManager.cpp">
+    <ClCompile Include="manager\sceneManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="animation.cpp">
-      <Filter>애니메이션</Filter>
-    </ClCompile>
-    <ClCompile Include="animationManager.cpp">
+    <ClCompile Include="manager\soundManager.cpp">
       <Filter>Manager</Filter>
     </ClCompile>
-    <ClCompile Include="effect.cpp">
-      <Filter>이펙트</Filter>
-    </ClCompile>
-    <ClCompile Include="effectManager.cpp">
+    <ClCompile Include="manager\timeManager.cpp">
       <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="base\gameNode.cpp">
+      <Filter>base\gameNode</Filter>
+    </ClCompile>
+    <ClCompile Include="base\image.cpp">
+      <Filter>base\image</Filter>
+    </ClCompile>
+    <ClCompile Include="base\utils.cpp">
+      <Filter>base\UTIL</Filter>
+    </ClCompile>
+    <ClCompile Include="base\animation.cpp">
+      <Filter>base\애니메이션</Filter>
+    </ClCompile>
+    <ClCompile Include="base\effect.cpp">
+      <Filter>base\이펙트</Filter>
+    </ClCompile>
+    <ClCompile Include="base\timer.cpp">
+      <Filter>base\타이머</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

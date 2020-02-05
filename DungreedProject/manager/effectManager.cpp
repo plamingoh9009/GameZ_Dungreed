@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "effectManager.h"
-#include"effect.h"
+#include "base/effect.h"
 
 effectManager::effectManager()
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include"singletonBase.h"
+#include"base/singletonBase.h"
 class animationManager :  public singletonBase<animationManager>
 {
 

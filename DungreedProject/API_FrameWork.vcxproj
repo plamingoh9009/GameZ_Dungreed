@@ -90,6 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
+      <AdditionalIncludeDirectories>./;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -147,43 +148,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="animation.h" />
-    <ClInclude Include="animationManager.h" />
     <ClInclude Include="API_FrameWork.h" />
+    <ClInclude Include="base\animation.h" />
+    <ClInclude Include="base\effect.h" />
+    <ClInclude Include="base\gameNode.h" />
+    <ClInclude Include="base\image.h" />
+    <ClInclude Include="base\singletonBase.h" />
+    <ClInclude Include="base\timer.h" />
+    <ClInclude Include="base\utils.h" />
     <ClInclude Include="commonMacroFunction.h" />
-    <ClInclude Include="effect.h" />
-    <ClInclude Include="effectManager.h" />
-    <ClInclude Include="gameNode.h" />
-    <ClInclude Include="image.h" />
-    <ClInclude Include="imageManager.h" />
-    <ClInclude Include="keyManager.h" />
     <ClInclude Include="mainGame.h" />
-    <ClInclude Include="randomFunction.h" />
+    <ClInclude Include="manager\animationManager.h" />
+    <ClInclude Include="manager\effectManager.h" />
+    <ClInclude Include="manager\imageManager.h" />
+    <ClInclude Include="manager\keyManager.h" />
+    <ClInclude Include="manager\randomFunction.h" />
+    <ClInclude Include="manager\sceneManager.h" />
+    <ClInclude Include="manager\soundManager.h" />
+    <ClInclude Include="manager\timeManager.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="sceneManager.h" />
-    <ClInclude Include="singletonBase.h" />
-    <ClInclude Include="soundManager.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="timeManager.h" />
-    <ClInclude Include="timer.h" />
-    <ClInclude Include="utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="animation.cpp" />
-    <ClCompile Include="animationManager.cpp" />
-    <ClCompile Include="effect.cpp" />
-    <ClCompile Include="effectManager.cpp" />
-    <ClCompile Include="gameNode.cpp" />
-    <ClCompile Include="image.cpp" />
-    <ClCompile Include="imageManager.cpp" />
-    <ClCompile Include="keyManager.cpp" />
+    <ClCompile Include="base\animation.cpp" />
+    <ClCompile Include="base\effect.cpp" />
+    <ClCompile Include="base\gameNode.cpp" />
+    <ClCompile Include="base\image.cpp" />
+    <ClCompile Include="base\timer.cpp" />
+    <ClCompile Include="base\utils.cpp" />
     <ClCompile Include="mainGame.cpp" />
-    <ClCompile Include="sceneManager.cpp" />
-    <ClCompile Include="soundManager.cpp" />
-    <ClCompile Include="timeManager.cpp" />
-    <ClCompile Include="timer.cpp" />
-    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="manager\animationManager.cpp" />
+    <ClCompile Include="manager\effectManager.cpp" />
+    <ClCompile Include="manager\imageManager.cpp" />
+    <ClCompile Include="manager\keyManager.cpp" />
+    <ClCompile Include="manager\sceneManager.cpp" />
+    <ClCompile Include="manager\soundManager.cpp" />
+    <ClCompile Include="manager\timeManager.cpp" />
     <ClCompile Include="winMain.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

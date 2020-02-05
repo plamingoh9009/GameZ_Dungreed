@@ -1,5 +1,5 @@
 #pragma once
-#include"singletonBase.h"
+#include"base/singletonBase.h"
 //이펙트 클래스 전방선언
 class effect;
 class effectManager :  public singletonBase<effectManager>
