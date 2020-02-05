@@ -68,17 +68,13 @@ private:
 public:
 	//빈 비트맵 이미지 초기화
 	HRESULT init(int width, int height);
-
 	HRESULT init(const char* fileName, int width, int height,
 		bool isTrans, COLORREF transColor);
-
 	HRESULT init(const char* fileName, float x, float y, int width, int height,
 		bool isTrans, COLORREF transColor);
 	//프레임 이미지 파일로 초기화
-
 	HRESULT init(const char* fileName, int width, int height,
 		int frameX, int frameY, bool isTrans, COLORREF transColor);
-
 	HRESULT init(const char* fileName, float x, float y, int width, int height,
 		int frameX, int frameY, bool isTrans, COLORREF transColor);
 
@@ -94,7 +90,6 @@ public:
 	void render(HDC hdc, int destX, int destY, int width, int height);
 	void render(HDC hdc, int destX, int destY, int sourX, int sourY, int sourWidth, int sourHeight);
 
-
 	//프레임렌더
 	void frameRender(HDC hdc, int destX, int destY);
 	void frameRender(HDC hdc, int destX, int destY, int currentFrameX, int currentFrameY);
@@ -106,7 +101,7 @@ public:
 	void alphaRender(HDC hdc, BYTE alpha);
 	void alphaRender(HDC hdc, int destX, int destY, BYTE alpha);
 	void alphaRender(HDC hdc, int destX, int destY, int sourX, int sourY, int sourWidth, int sourHeight, BYTE alpha);
-
+	//애니렌더
 	void aniRender(HDC hdc, int destX, int destY, animation* ani);
 
 	//DC가져와라

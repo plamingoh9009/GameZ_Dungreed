@@ -1,12 +1,9 @@
 #include "stdafx.h"
 #include "imageManager.h"
 
-
 imageManager::imageManager()
 {
 }
-
-
 imageManager::~imageManager()
 {
 }
@@ -15,7 +12,6 @@ HRESULT imageManager::init()
 {
 	return S_OK;
 }
-
 void imageManager::release()
 {
 	deleteAll();
@@ -23,7 +19,6 @@ void imageManager::release()
 
 image * imageManager::addImage(string strKey, int width, int height)
 {
-
 	//추가하려는 키값으로 이미지가 존재하는지 확인
 	image* img = findImage(strKey);
 
@@ -43,7 +38,6 @@ image * imageManager::addImage(string strKey, int width, int height)
 
 	return img;
 }
-
 image * imageManager::addImage(string strKey, const char * fileName, int width, int height, bool trans, COLORREF transColor)
 {
 	image* img = findImage(strKey);
@@ -63,7 +57,6 @@ image * imageManager::addImage(string strKey, const char * fileName, int width, 
 
 	return img;
 }
-
 image * imageManager::addImage(string strKey, const char * fileName, float x, float y, int width, int height, bool trans, COLORREF transColor)
 {
 	image* img = findImage(strKey);
@@ -105,7 +98,6 @@ image * imageManager::addFrameImage(string strKey, const char * fileName, float 
 	return img;
 
 }
-
 image * imageManager::addFrameImage(string strKey, const char * fileName, int width, int height, int frameX, int frameY, bool trans, COLORREF transColor)
 {
 	//추가 하려는 키값으로 이미지가 존재하는지 확인
@@ -127,6 +119,40 @@ image * imageManager::addFrameImage(string strKey, const char * fileName, int wi
 
 	return img;
 }
+//============================================
+//##		이미지+애니메이션 초기화			##
+//============================================
+image * imageManager::addFrame(string strKey, const char * fileName, 
+	int width, int height, int frameX, int frameY, int fps,
+	bool reverse, bool loop, bool trans, COLORREF transColor)
+{
+	//추가 하려는 키값으로 이미지가 존재하는지 확인
+	image* img = findImage(strKey);
+	animation* ani;
+
+	//추가하려는 이미지가 이미 있으면 리턴
+	if (img) return img;
+
+	img = new image;
+	ani = new animation;
+	//이미지가 제대로 초기화 되지 않으면
+	if (FAILED(img->init(fileName, width, height, frameX, frameY, trans, transColor)))
+	{
+		SAFE_DELETE(img);
+
+		return NULL;
+	}
+	// 제대로 초기화 되었다면 애니메이션을 초기화
+	ani->init(img->getWidth(), img->getHeight(), 
+		img->getFrameWidth(), img->getFrameHeight());
+	ani->setDefPlayFrame(reverse, loop);
+	ani->setFPS(fps);
+	// 이미지와 애니메이션을 map에 추가
+	_mImageList.insert(make_pair(strKey, img));
+	_aniList.insert(make_pair(strKey, ani));
+
+	return img;
+}
 
 image * imageManager::findImage(string strKey)
 {
@@ -136,8 +162,16 @@ image * imageManager::findImage(string strKey)
 	{
 		return key->second;
 	}
-
 	return NULL;
+}
+animation * imageManager::findAnimation(string strKey)
+{
+	auto ani = _aniList.find(strKey);
+	if (ani != _aniList.end())
+	{
+		return ani->second;
+	}
+	return nullptr;
 }
 
 bool imageManager::deleteImage(string strKey)
@@ -151,16 +185,24 @@ bool imageManager::deleteImage(string strKey)
 		key->second->release();
 		SAFE_DELETE(key->second);
 		_mImageList.erase(key);
-
 		return true;
 	}
-
+	return false;
+}
+bool imageManager::deleteAnimation(string strKey)
+{
+	auto ani = _aniList.find(strKey);
+	if (ani != _aniList.end())
+	{
+		SAFE_DELETE(ani->second);
+		_aniList.erase(ani);
+		return true;
+	}
 	return false;
 }
 
 bool imageManager::deleteAll()
 {
-
 	//맵전체를 돌면서 삭제
 	mapImageListIter iter = _mImageList.begin();
 
@@ -171,11 +213,22 @@ bool imageManager::deleteAll()
 			SAFE_DELETE(iter->second);
 			iter = _mImageList.erase(iter);
 		}
-		else ++iter;
+		else { ++iter; }
 	}
+	swap(_mImageList, mapImageList());
 
-	_mImageList.clear();
-
+	// 애니메이션 삭제
+	auto aniIter = _aniList.begin();
+	for (;aniIter != _aniList.end();)
+	{
+		if (aniIter->second != NULL)
+		{
+			SAFE_DELETE(iter->second);
+			aniIter = _aniList.erase(aniIter);
+		}
+		else { ++iter; }
+	}
+	swap(_aniList, mAniList());
 	return true;
 }
 

@@ -23,7 +23,6 @@ public:
 	animation();
 	~animation();
 
-
 	HRESULT init(int totalW, int totalH, int frameW, int frameH);
 	//처음부터 끝까지 애니메이션 셋팅
 	void setDefPlayFrame(bool reverse = false, bool loop = false);
@@ -34,7 +33,7 @@ public:
 
 	//초당 갱신 횟수
 	void setFPS(int framePerSec);
-
+	void setFPS(int framePerSec, float frameDelay);
 	//프레임 업데이트 타임
 	void frameUpdate(float elapsedTime);
 

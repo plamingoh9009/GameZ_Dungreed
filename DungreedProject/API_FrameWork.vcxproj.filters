@@ -52,11 +52,11 @@
     <Filter Include="Object">
       <UniqueIdentifier>{a0bf7726-ee22-4476-a9d3-030c50406159}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{4f44fb4a-bc77-4a5c-afbe-99f594638bc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -71,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="mainGame.h">
       <Filter>mainGame</Filter>
-    </ClInclude>
-    <ClInclude Include="manager\animationManager.h">
-      <Filter>Manager</Filter>
     </ClInclude>
     <ClInclude Include="manager\effectManager.h">
       <Filter>Manager</Filter>
@@ -117,19 +114,16 @@
     <ClInclude Include="base\timer.h">
       <Filter>base\타이머</Filter>
     </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>pch</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="winMain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="mainGame.cpp">
       <Filter>mainGame</Filter>
-    </ClCompile>
-    <ClCompile Include="manager\animationManager.cpp">
-      <Filter>Manager</Filter>
     </ClCompile>
     <ClCompile Include="manager\effectManager.cpp">
       <Filter>Manager</Filter>
@@ -166,6 +160,9 @@
     </ClCompile>
     <ClCompile Include="base\timer.cpp">
       <Filter>base\타이머</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>pch</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

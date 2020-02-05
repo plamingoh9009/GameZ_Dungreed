@@ -158,7 +158,6 @@
     <ClInclude Include="base\utils.h" />
     <ClInclude Include="commonMacroFunction.h" />
     <ClInclude Include="mainGame.h" />
-    <ClInclude Include="manager\animationManager.h" />
     <ClInclude Include="manager\effectManager.h" />
     <ClInclude Include="manager\imageManager.h" />
     <ClInclude Include="manager\keyManager.h" />
@@ -178,7 +177,6 @@
     <ClCompile Include="base\timer.cpp" />
     <ClCompile Include="base\utils.cpp" />
     <ClCompile Include="mainGame.cpp" />
-    <ClCompile Include="manager\animationManager.cpp" />
     <ClCompile Include="manager\effectManager.cpp" />
     <ClCompile Include="manager\imageManager.cpp" />
     <ClCompile Include="manager\keyManager.cpp" />

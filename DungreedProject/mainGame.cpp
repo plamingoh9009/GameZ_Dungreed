@@ -10,20 +10,17 @@ mainGame::~mainGame()
 HRESULT mainGame::init()
 {
 	gameNode::init(true);
-
 	return S_OK;
 }
 
 void mainGame::release()
 {
 	gameNode::release();
-
 }
 
 void mainGame::update()
 {
 	gameNode::update();
-
 }
 
 void mainGame::render(/*HDC hdc*/)

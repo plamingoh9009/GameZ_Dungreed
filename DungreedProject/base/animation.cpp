@@ -206,10 +206,17 @@ void animation::setPlayFrame(int start, int end, bool reverse, bool loop)
 		}
 	}
 }
-
+//============================================
+//##			애니메이션 속도				##
+//============================================
 void animation::setFPS(int framePerSec)
 {
 	_frameUpdateSec = 1.0f / framePerSec;
+}
+void animation::setFPS(int framePerSec, float frameDelay)
+{
+	_frameUpdateSec = 1.0f / framePerSec;
+	_elapsedSec = frameDelay;
 }
 
 void animation::frameUpdate(float elapsedTime)
@@ -246,18 +253,15 @@ void animation::start()
 	_play = true;
 	_nowPlayIndex = 0;
 }
-
 void animation::stop()
 {
 	_play = false;
 	_nowPlayIndex = 0;
 }
-
 void animation::pause()
 {
 	_play = false;
 }
-
 void animation::resume()
 {
 	_play = true;
