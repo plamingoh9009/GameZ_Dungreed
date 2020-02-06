@@ -10,9 +10,13 @@ void Player::player_Move()
 		{
 		case Idle:
 			_playerimg = IMAGEMANAGER->findImage("LEFT_IDLE");
+			_playerani = IMAGEMANAGER->findAnimation("LEFT_IDLE");
+			_playerani->start();
 			break;
 		case Move:
 			_playerimg = IMAGEMANAGER->findImage("LEFT_MOVE");
+			_playerani = IMAGEMANAGER->findAnimation("LEFT_MOVE");
+			_playerani->start();
 			break;
 		case Jump:
 			_playerimg = IMAGEMANAGER->findImage("LEFT_JUMP");
@@ -26,10 +30,13 @@ void Player::player_Move()
 
 		case Idle:
 			_playerimg = IMAGEMANAGER->findImage("RIGHT_IDLE");
+			_playerani = IMAGEMANAGER->findAnimation("RIGHT_IDLE");
+			_playerani->start();
 			break;
 		case Move:
 			_playerimg = IMAGEMANAGER->findImage("RIGHT_MOVE");
-
+			_playerani = IMAGEMANAGER->findAnimation("RIGHT_MOVE");
+			_playerani->start();
 			break;
 		case Jump:
 			_playerimg = IMAGEMANAGER->findImage("RIGHT_JUMP");
@@ -41,29 +48,41 @@ void Player::player_Move()
 
 void Player::player_Jump()
 {
-
-	if (_playerJumpCount <= 30)
-	{
-		OffsetRect(&_playerRC, 0, -(_playerSpeed+2));
-		_playerJumpCount++;
-	}
-	if (_playerJumpCount >= 30)
-	{
-		OffsetRect(&_playerRC, 0, _playerSpeed + 3);
-		_playerJumpCount++;
-	}
-
-	if (_playerRC.bottom < _stage->getGroud().top)
+	
+	if (b_isJump)
 	{
 		_playerMove = Jump;
+		_playerJumpGravity = 0.5f;
+		_playerRC.top -= _playerJumpPower;
+		_playerRC.bottom -= _playerJumpPower;
+		_playerJumpPower -= _playerJumpGravity;
+		if (_playerRC.top <200)
+		{
+			b_isMAXJump = true;
+			b_isJump = false;
+		}
+		
+	}
+	
+	if(!b_isJump|| b_isMAXJump)
+	{
+		//_playerMove = Jump;
+		_playerJumpGravity = 10.0f;
+		_playerRC.top += _playerJumpGravity;
+		_playerRC.bottom += _playerJumpGravity;
+	}
+	RECT temp;
+	if (IntersectRect(&temp, &_playerRC, &_stage->getGroud()))
+	{
+		b_isJump = false;
+		b_isMAXJump = false;
+		
+		_playerRC.bottom = _stage->getGroud().top;
+		_playerRC.top = _playerRC.bottom - 42;
 	}
 	else
 	{
-		//_playerMove = Idle;
-		_playerRC.bottom = _stage->getGroud().top+1;
-		_playerRC.top = _playerRC.bottom - 42;
-		_playerJumpCount = 0;
-		b_isJump = false;
+		_playerMove = Jump;
 	}
 }
 ////////////////////////////////////////////////////////
@@ -79,11 +98,11 @@ Player::~Player()
 HRESULT Player::init()
 {
 	//아이들상태
-	IMAGEMANAGER->addFrameImage("LEFT_IDLE", "resource/image/플레이어/왼쪽아이들.bmp", 68 * 2, 21 * 2, 4, 1, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("RIGHT_IDLE", "resource/image/플레이어/오른쪽아이들.bmp", 68 * 2, 21 * 2, 4, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrame("LEFT_IDLE", "resource/image/플레이어/왼쪽아이들.bmp", 68 * 2, 21 * 2, 4, 1, 1);
+	IMAGEMANAGER->addFrame("RIGHT_IDLE", "resource/image/플레이어/오른쪽아이들.bmp", 68 * 2, 21 * 2, 4, 1, 1);
 	//이동
-	IMAGEMANAGER->addFrameImage("LEFT_MOVE", "resource/image/플레이어/왼쪽이동.bmp", 238 * 2, 21 * 2, 14, 1, true, RGB(255, 0, 255));
-	IMAGEMANAGER->addFrameImage("RIGHT_MOVE", "resource/image/플레이어/오른쪽이동.bmp", 238 * 2, 21 * 2, 14, 1, true, RGB(255, 0, 255));
+	IMAGEMANAGER->addFrame("LEFT_MOVE", "resource/image/플레이어/왼쪽이동.bmp", 238 * 2, 21 * 2, 14, 1, 1);
+	IMAGEMANAGER->addFrame("RIGHT_MOVE", "resource/image/플레이어/오른쪽이동.bmp", 238 * 2, 21 * 2, 14, 1, 1);
 	//점프
 	IMAGEMANAGER->addImage("LEFT_JUMP", "resource/image/플레이어/왼쪽점프.bmp", 17 * 2, 21 * 2, true, RGB(255, 0, 255));
 	IMAGEMANAGER->addImage("RIGHT_JUMP", "resource/image/플레이어/오른쪽점프.bmp", 17 * 2, 21 * 2, true, RGB(255, 0, 255));
@@ -96,9 +115,14 @@ HRESULT Player::init()
 	_playerWay = Left;
 	_playerMove = Idle;
 	_playerimg = IMAGEMANAGER->findImage("LEFT_IDLE");
+	_playerani = IMAGEMANAGER->findAnimation("LEFT_IDLE");
+	_playerani->start();
 	_playerRC = RectMakeCenter(WINSIZEX / 2, WINSIZEY / 2, 17 * 2, 21 * 2);
+	/////////////카메라//////////////
+	_cameraX = 0;
+	_cameraY = 0;
+	///////////////////////////////
 	_playerSpeed = 3;
-	_playerMoveCount = 0;//움직일떄 플레이어 점프 
 	_playerJumpCount = 0;//점프에만 사용할 카운트
 	_playerRC.bottom = _stage->getGroud().top;
 	_playerRC.top = _playerRC.bottom-42;
@@ -107,7 +131,8 @@ HRESULT Player::init()
 
 
 
-	b_isJump = false;
+	b_isJump = false; 
+	b_isMAXJump = false;
 
 
 
@@ -117,13 +142,25 @@ HRESULT Player::init()
 
 void Player::release()
 {
-	SAFE_DELETE(_playerimg);
+	IMAGEMANAGER->deleteImage("LEFT_IDLE");
+	IMAGEMANAGER->deleteImage("RIGHT_IDLE");
+	IMAGEMANAGER->deleteImage("LEFT_MOVE");
+	IMAGEMANAGER->deleteImage("RIGHT_MOVE");
+	IMAGEMANAGER->deleteImage("LEFT_JUMP");
+	IMAGEMANAGER->deleteImage("RIGHT_JUMP");
+	//SAFE_DELETE(_playerimg);
+	_stage->release();
+	SAFE_DELETE(_stage);
 }
 //================================================
 //##					업데이트					##
 //================================================
 void Player::update()
 {
+	
+	_focousplayerX = _playerRC.right - (_playerRC.right - _playerRC.left) / 2;
+	_focousplayerY = _playerRC.bottom - (_playerRC.bottom - _playerRC.top) / 2;
+
 	_playerFocusX = _playerRC.right - (_playerRC.right - _playerRC.left) / 2;//플레이어 렉트 중점
 	//플레이어 방향 지정
 	if (m_ptMouse.x < _playerFocusX)
@@ -136,43 +173,73 @@ void Player::update()
 	}
 	if (KEYMANAGER->isStayKeyDown('A'))//left_rc
 	{
-		_playerMoveCount++;
+		_playerframeSpeed = 0.18;
 		_playerMove = Move;
-		OffsetRect(&_playerRC, -_playerSpeed, 0);
-		if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+		//OffsetRect(&_playerRC, -_playerSpeed, 0);
+		if (KEYMANAGER->isStayKeyDown(VK_SPACE) && !b_isMAXJump)
 		{
+			_playerJumpPower = 5.0f;
+			b_isJump = true;
+		}
+		if (_focousplayerX >= WINSIZEX / 2)
+		{
+			OffsetRect(&_playerRC, -_playerSpeed, 0);
+		}
+		else if(_cameraX < 0)
+		{
+			_cameraX += _playerSpeed;
+		}
+		else
+		{
+			OffsetRect(&_playerRC, -_playerSpeed, 0);
+		}
+	}
+	
+	else if (KEYMANAGER->isStayKeyDown('D'))//right_rc
+	{
+		_playerMove = Move;
+		_playerframeSpeed = 0.18;
+		//OffsetRect(&_playerRC, _playerSpeed, 0);
+		if (KEYMANAGER->isStayKeyDown(VK_SPACE) && !b_isMAXJump)
+		{
+			_playerJumpPower = 5.0f;
 			b_isJump = true;
 		}
 
-	}
-	else if (KEYMANAGER->isStayKeyDown('D'))//right_rc
-	{
-		_playerMoveCount++;
-		_playerMove = Move;
-		OffsetRect(&_playerRC, _playerSpeed, 0);
-		if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+		if (_focousplayerX <= WINSIZEX / 2)
 		{
-			b_isJump = true;
+			OffsetRect(&_playerRC, _playerSpeed, 0);
 		}
+		else if (_cameraX > -WINSIZEX)
+		{
+			_cameraX -= _playerSpeed;
+		}
+		else
+		{
+			OffsetRect(&_playerRC, _playerSpeed, 0);
+		}
+		
 	}
 	else
 	{
-		_playerMoveCount++;
 		_playerMove = Idle;
-		if (KEYMANAGER->isOnceKeyDown(VK_SPACE))
+		_playerframeSpeed = 0.15;
+		if (KEYMANAGER->isStayKeyDown(VK_SPACE) && !b_isMAXJump)
 		{
+			_playerJumpPower = 5.0f;
 			b_isJump = true;
 		}
 	}
-	if (b_isJump)
-	{
-		player_Jump();
-	}
-	if (_playerMoveCount > 280)
-	{
-		_playerMoveCount = 0;
-	}
+	_playerani->frameUpdate(_playerframeSpeed);
+
+	player_Jump();
 	player_Move();
+
+	if (KEYMANAGER->isOnceKeyDown('0'))
+	{
+		SCENEMANAGER->changeScene("startscene");
+	}
+
 
 
 
@@ -191,7 +258,7 @@ void Player::render()
 	if (b_Debug)
 	{
 		char str[128];
-		wsprintf(str, "|플레이어 무브 카운트 : %d | 플레이어 점프 카운트 : %d | 플레이어 무브 : %d |플레이어 HP : %d", _playerMoveCount, _playerJumpCount, _playerMove,_playerHP);
+		wsprintf(str, "| 플레이어 점프 카운트 : %d | 플레이어 무브 : %d |플레이어 HP : %d|플레이어카메라X : %d|플레이어카메라y : %d|", _playerJumpCount, _playerMove,_playerHP,_cameraX,_cameraY);
 		TextOut(getMemDC(), WINSIZEX / 2 - 300, 0, str, strlen(str));
 
 		Rectangle(getMemDC(), _stage->getGroud().left, _stage->getGroud().top, _stage->getGroud().right, _stage->getGroud().bottom);
@@ -200,11 +267,13 @@ void Player::render()
 
 	if (_playerMove == Move)
 	{
-		_playerimg->frameRender(getMemDC(), _playerRC.left, _playerRC.top, (_playerMoveCount / 15) % 14, 0);
+		//_playerimg->frameRender(getMemDC(), _playerRC.left, _playerRC.top, (_playerMoveCount / 15) % 14, 0);
+		_playerimg->aniRender(getMemDC(), _playerRC.left, _playerRC.top, _playerani);
 	}
 	else if (_playerMove == Idle)
 	{
-		_playerimg->frameRender(getMemDC(), _playerRC.left, _playerRC.top, (_playerMoveCount / 15) % 4, 0);
+		//_playerimg->frameRender(getMemDC(), _playerRC.left, _playerRC.top, (_playerMoveCount / 15) % 4, 0);
+		_playerimg->aniRender(getMemDC(), _playerRC.left, _playerRC.top, _playerani);
 	}
 	else if (_playerMove == Jump)
 	{
