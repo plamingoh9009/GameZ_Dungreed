@@ -251,7 +251,7 @@ void animation::frameUpdate(float elapsedTime)
 void animation::start()
 {
 	_play = true;
-	_nowPlayIndex = 0;
+	//_nowPlayIndex = 0;
 }
 void animation::stop()
 {

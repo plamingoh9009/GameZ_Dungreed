@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "MonsterControl.h"
 
-
 //»ý¼º
 void MonsterControl::init_monsters(MONSTER_TYPE type)
 {
@@ -13,8 +12,10 @@ void MonsterControl::init_monsters(MONSTER_TYPE type)
 	}
 	
 	monster->init();
-	monster->init_monster_size_rc(WINSIZEX/2 + rndSpwan * 100, WINSIZEY - (WINSIZEY / 4) - 50);
+	monster->init_monster_size_rc();
 	monster->init_chk_distance_player_rc();
+	monster->init_attack_distance_rc_left();
+	monster->init_attack_distance_rc_right();
 	_monsters.push_back(monster);
 	monster = nullptr;
 }
@@ -68,40 +69,6 @@ void MonsterControl::release_monsters()
 //============================================================
 //==						T E S T							==
 //============================================================
-void MonsterControl::spawn_monsters()
-{
-	rndSpwan = RND->getFromIntTo(1, 4);
-	if (KEYMANAGER->isOnceKeyDown('1'))
-	{
-		init_monsters(SKELETON_WORRIOR);
-	}
-	//if (KEYMANAGER->isOnceKeyDown('2'))
-	//{
-	//	init_monsters(SKELETON_ARCHER);
-	//}
-	//if (KEYMANAGER->isOnceKeyDown('3'))
-	//{
-	//	init_monsters(TYPE_EMPTY);
-	//}
-
-
-	if (KEYMANAGER->isOnceKeyDown('D'))
-	{
-		//delete_monsters(MONSTER_TYPE type);
-	}
-	if (KEYMANAGER->isOnceKeyDown('R'))
-	{
-		if (show_rc == false)
-		{
-			show_rc = true;
-		}
-		else if (show_rc == true)
-		{
-			show_rc = false;
-		}
-	}	
-}
-
 void MonsterControl::kill_monsters()
 {
 	if (KEYMANAGER->isOnceKeyDown('K'))
@@ -137,11 +104,15 @@ void MonsterControl::release()
 
 void MonsterControl::update()
 {
-	void init_monsters(MONSTER_TYPE type);
-	spawn_monsters();
+	if (KEYMANAGER->isOnceKeyUp('1'))
+	{
+		init_monsters(SKELETON_WORRIOR);
+	}
+
 	kill_monsters();
 	delete_monsters();
 	update_monsters();
+	
 }
 
 void MonsterControl::render()
