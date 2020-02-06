@@ -1,10 +1,12 @@
 #pragma once
 #include "base/gameNode.h"
 #include "Scene/testScene.h"
+#include "Scene/startscene.h"
+#include "UI/UI.h"
 class mainGame : public gameNode
 {
 private:
-	
+	UI * _ui;
 public:
 	mainGame();
 	~mainGame();

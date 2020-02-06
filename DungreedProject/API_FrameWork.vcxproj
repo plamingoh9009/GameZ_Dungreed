@@ -171,9 +171,12 @@
     <ClInclude Include="Object\Unit\Skeleton_warrior.h" />
     <ClInclude Include="Object\Unit\stage.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene\startscene.h" />
     <ClInclude Include="Scene\testScene.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UI\Inventory.h" />
+    <ClInclude Include="UI\UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="base\animation.cpp" />
@@ -194,7 +197,10 @@
     <ClCompile Include="Object\Unit\Player.cpp" />
     <ClCompile Include="Object\Unit\Skeleton_warrior.cpp" />
     <ClCompile Include="Object\Unit\stage.cpp" />
+    <ClCompile Include="Scene\startscene.cpp" />
     <ClCompile Include="Scene\testScene.cpp" />
+    <ClCompile Include="UI\Inventory.cpp" />
+    <ClCompile Include="UI\UI.cpp" />
     <ClCompile Include="winMain.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

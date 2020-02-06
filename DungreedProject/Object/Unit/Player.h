@@ -2,6 +2,7 @@
 #include "base/gameNode.h"
 #include "base/singletonBase.h"
 #include "Object/Unit/stage.h"
+
 enum player_WAY
 {
 	Left=0,
@@ -25,21 +26,32 @@ private:
 	player_MOVE _playerMove;
 	RECT _playerRC;
 	image* _playerimg;
+	animation* _playerani;
 	int _playerFocusX;
 	int _playerSpeed;
 	int _playerJumpCount;
+	float _playerJumpPower;
+	float _playerJumpGravity;
+	float _playerframeSpeed;
 	int _playerHP;
-	bool b_isJump;
+
 	//나중에 합시다.
 	//int _playerAtk;
 	//int _playerDef;
 	//bool b_playerFight;
 
+	/////////카메라///////////
 
+	int _focousplayerX; //플레이어 RC 중점
+	int _focousplayerY; //플레이어 RC 중점
+	int _cameraX, _cameraY;
 
+	RECT _playerbackGround;
+	
 
-
-	int _playerMoveCount;
+	
+	bool b_isJump;
+	bool b_isMAXJump;
 
 	void player_Move();
 	void player_Jump();
@@ -51,14 +63,20 @@ public:
 
 	Player();
 	~Player();
+
 	RECT get_player() { return _playerRC; }
-
-
+	void setBackGround(RECT rc) {	_playerbackGround = rc;	}
+	int getPlayercameraX() {return _cameraX;}
+	int getPlayercameraY() {return _cameraY;}
 
 	HRESULT init();
 	void release();
 	void update();
 	void render(/*HDC hdc*/);
+
+
+	
+
 
 };
 
