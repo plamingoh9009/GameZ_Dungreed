@@ -1,10 +1,19 @@
 #pragma once
 #include "base/gameNode.h"
 #include "Scene/testScene.h"
+<<<<<<< HEAD
+#include "Scene/startscene.h"
+#include "UI/UI.h"
+class mainGame : public gameNode
+{
+private:
+	UI * _ui;
+=======
 class mainGame : public gameNode
 {
 private:
 	
+>>>>>>> master
 public:
 	mainGame();
 	~mainGame();

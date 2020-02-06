@@ -144,6 +144,18 @@
     <ClInclude Include="Object\Unit\Skeleton_warrior.h">
       <Filter>Object\Unit\몬스터</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="UI\Inventory.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UI.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\startscene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+=======
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="winMain.cpp">
@@ -209,5 +221,17 @@
     <ClCompile Include="Object\Unit\Skeleton_warrior.cpp">
       <Filter>Object\Unit\몬스터</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="UI\Inventory.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\startscene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+=======
+>>>>>>> master
   </ItemGroup>
 </Project>
